@@ -1,8 +1,8 @@
 import './navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faChevronLeft,
-  faChevronRight,
+  faCaretLeft,
+  faCaretRight,
   faTableCells,
   faBars,
   faTableColumns,
@@ -16,7 +16,6 @@ import {
 export default function Navbar() {
   return (
     <div className="navbar">
-
       <div className="navTopRow">
         <div className="trafficLights">
           <span className="trafficLight red" />
@@ -30,22 +29,22 @@ export default function Navbar() {
       </div>
 
       <div className="navBottomRow">
-
-        {/* left section: arrows + first two icon groups at ~1/3 */}
         <div className="navLeft">
+        <div className="navArrowGroup">
           <button className="navArrowBtn" disabled>
-            <FontAwesomeIcon icon={faChevronLeft} />
+            <FontAwesomeIcon icon={faCaretLeft} />
           </button>
           <button className="navArrowBtn" disabled>
-            <FontAwesomeIcon icon={faChevronRight} />
+            <FontAwesomeIcon icon={faCaretRight} />
           </button>
+        </div>
 
           <div className="navLeftGroups">
             <div className="navIconGroup">
-              <button className="navIconBtn active">
+              <button className="navIconBtn">
                 <FontAwesomeIcon icon={faTableCells} />
               </button>
-              <button className="navIconBtn">
+              <button className="navIconBtn active">
                 <FontAwesomeIcon icon={faBars} />
               </button>
               <button className="navIconBtn">
@@ -64,7 +63,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* center: spacer to push eye+gear to true center */}
         <div className="navCenter">
           <div className="navIconGroupAdjacent">
             <div className="navIconGroup">
@@ -80,18 +78,16 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* right: search */}
         <div className="navRight">
           <div className="navSearch">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="navSearchIcon" />
             <input
               type="text"
-              placeholder="Search"
+              
               className="navSearchInput"
             />
           </div>
         </div>
-
       </div>
     </div>
   )

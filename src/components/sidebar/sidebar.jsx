@@ -31,7 +31,7 @@ const sections = [
   {
     heading: 'Contact Me',
     items: [
-      { id: 'email',    label: 'Email',    icon: faEnvelope, path: null, external: 'mailto:your@email.com' },
+      { id: 'email',    label: 'Email',    icon: faEnvelope, path: '/email' },
       { id: 'github',   label: 'GitHub',   icon: faGithub,   path: null, external: 'https://github.com/g35k' },
       { id: 'linkedin', label: 'LinkedIn', icon: faLinkedin, path: null, external: 'https://linkedin.com/in/kaylagaribay' },
     ],
