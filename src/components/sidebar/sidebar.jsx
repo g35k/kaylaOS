@@ -17,17 +17,17 @@ const sections = [
   {
     heading: 'Favorites',
     items: [
-      { id: 'about', label: 'About Me', icon: faUser, path: '/about' },
-      { id: 'projects', label: 'Projects', icon: faFolderOpen, path: '/projects' },
-      { id: 'resume', label: 'Resume', icon: faFileLines, path: '/resume' },
+      { id: 'about',    label: 'About Me', icon: faUser,        path: '/about' },
+      { id: 'projects', label: 'Projects', icon: faFolderOpen,  path: '/projects' },
+      { id: 'resume',   label: 'Resume',   icon: faFileLines,   path: '/resume' },
     ],
   },
   {
     heading: 'Contact Me',
     items: [
-      { id: 'email', label: 'Email', icon: faEnvelope, path: null },
-      { id: 'github', label: 'GitHub', icon: faGithub, path: null },
-      { id: 'linkedin', label: 'LinkedIn', icon: faLinkedin, path: null },
+      { id: 'email',    label: 'Email',    icon: faEnvelope, path: '/email' },
+      { id: 'github',   label: 'GitHub',   icon: faGithub,   path: null, external: 'https://github.com/g35k' },
+      { id: 'linkedin', label: 'LinkedIn', icon: faLinkedin, path: null, external: 'https://linkedin.com/in/kaylagaribay' },
     ],
   },
   {
@@ -47,7 +47,9 @@ export default function Sidebar() {
     .find(item => item.path === location.pathname)?.id ?? 'home'
 
   function handleClick(item) {
-    if (item.path) {
+    if (item.external) {
+      window.open(item.external, '_blank', 'noopener,noreferrer')
+    } else if (item.path) {
       navigate(item.path)
     }
   }

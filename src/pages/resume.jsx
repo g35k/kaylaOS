@@ -17,13 +17,17 @@ export default function Resume() {
               </span>
             </div>
             <div className="resumeToolbarRight">
-              <a
-                href="/assets/resume.pdf"
-                download
+            <button
                 className="resumeDownloadBtn"
-              >
-                Download
-              </a>
+                onClick={() => {
+                const a = document.createElement('a')
+                a.href = '/assets/resume.pdf'
+                a.download = 'resume.pdf'
+                a.click()
+            }}
+            >
+            Download
+            </button>
             </div>
           </div>
           <div className="resumeViewerWrapper">

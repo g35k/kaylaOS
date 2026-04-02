@@ -1,0 +1,176 @@
+/* ── Email page: content shell ─────────────────────────────── */
+/* mirrors .finderContent but scoped to email so no collision  */
+.emailContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    background-color: #c8c8c8;
+  }
+  
+  /* ── Toolbar — mirrors resumeToolbar ───────────────────────── */
+  .emailToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    min-height: 36px;
+    background: linear-gradient(to bottom, #f0f0f0, #d8d8d8);
+    border-bottom: 1px solid #9aa0a8;
+    padding: 0 16px;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  
+  .emailToolbarLeft {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .emailToolbarFilename {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .emailToolbarRight {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Blue Aqua send button */
+  .emailSendBtn {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to bottom, #6aabee, #3a80cc);
+    border: 1px solid #2a65a8;
+    border-radius: 5px;
+    padding: 3px 16px;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: background 0.1s;
+    letter-spacing: 0.01em;
+  }
+  
+  .emailSendBtn:hover {
+    background: linear-gradient(to bottom, #7bbcf5, #4a90dc);
+  }
+  
+  /* Confirmation state — turns green */
+  .emailSendBtnSent {
+    background: linear-gradient(to bottom, #6ecb6e, #3a9e3a);
+    border-color: #2a7e2a;
+    cursor: default;
+    opacity: 0.85;
+  }
+  
+  /* ── Viewer wrapper — centers the card ─────────────────────── */
+  .emailViewerWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 24px;
+  }
+  
+  /* ── Compose card ──────────────────────────────────────────── */
+  .emailComposeCard {
+    width: 100%;
+    max-width: 720px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #9aa0a8;
+    border-radius: 4px;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+  }
+  
+  /* ── Header field rows (To, Subject) ───────────────────────── */
+  .emailFieldRow {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    min-height: 32px;
+    padding: 0 14px;
+    background: linear-gradient(to bottom, #f7f9fb, #eef1f5);
+    flex-shrink: 0;
+  }
+  
+  .emailFieldRowTo {
+    background: linear-gradient(to bottom, #eef2f7, #e4eaf2);
+  }
+  
+  .emailFieldLabel {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    width: 60px;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  
+  /* Blue pill chip for locked To: address */
+  .emailToChip {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #1a5ba8;
+    background: linear-gradient(to bottom, #ddeeff, #cce0f7);
+    border: 1px solid #89b4de;
+    border-radius: 10px;
+    padding: 1px 10px;
+    font-weight: 500;
+    user-select: none;
+  }
+  
+  /* Subject text input — transparent, no border */
+  .emailFieldInput {
+    flex: 1;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #222;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+  }
+  
+  .emailFieldInput::placeholder {
+    color: #aab0bb;
+  }
+  
+  /* Hairline divider between rows */
+  .emailFieldDivider {
+    height: 1px;
+    background: #c8cdd4;
+    flex-shrink: 0;
+  }
+  
+  /* ── Body textarea ─────────────────────────────────────────── */
+  .emailBodyTextarea {
+    flex: 1;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #222;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 14px;
+    line-height: 1.6;
+  }
+  
+  .emailBodyTextarea::placeholder {
+    color: #aab0bb;
+  }
+  
