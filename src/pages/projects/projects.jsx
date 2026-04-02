@@ -7,14 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder, faPlay } from '@fortawesome/free-solid-svg-icons'
 
 import ProjectOneWindow from './projectOneWindow'
-
-/* placeholder window imports
-import ProjectOneWindow from './ProjectOneWindow'
-import ProjectTwoWindow from './ProjectTwoWindow'
-import ProjectThreeWindow from './ProjectThreeWindow'
-import ProjectFourWindow from './ProjectFourWindow'
-import ProjectFiveWindow from './ProjectFiveWindow'
-*/
+import ProjectTwoWindow from './projectTwoWindow'
+import ProjectThreeWindow from './projectThreeWindow'
+import ProjectFourWindow from './projectFourWindow'
+import ProjectFiveWindow from './projectFiveWindow'
 
 const projectItems = [
   { id: 'project1', name: 'project one', date: '--', size: '--', kind: 'Folder' },
@@ -102,23 +98,19 @@ export default function Projects() {
       )}
 
       {openWindow === 'project2' && (
-        // <ProjectTwoWindow onClose={() => setOpenWindow(null)} />
-        <div>Project 2 Window Placeholder</div>
+         <ProjectTwoWindow onClose={() => setOpenWindow(null)} />
       )}
 
       {openWindow === 'project3' && (
-        // <ProjectThreeWindow onClose={() => setOpenWindow(null)} />
-        <div>Project 3 Window Placeholder</div>
+         <ProjectThreeWindow onClose={() => setOpenWindow(null)} />
       )}
 
       {openWindow === 'project4' && (
-        // <ProjectFourWindow onClose={() => setOpenWindow(null)} />
-        <div>Project 4 Window Placeholder</div>
+         <ProjectFourWindow onClose={() => setOpenWindow(null)} />
       )}
 
       {openWindow === 'project5' && (
-        // <ProjectFiveWindow onClose={() => setOpenWindow(null)} />
-        <div>Project 5 Window Placeholder</div>
+         <ProjectFiveWindow onClose={() => setOpenWindow(null)} />
       )}
 
       <BottomNav itemCount={5} />
