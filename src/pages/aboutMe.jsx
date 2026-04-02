@@ -2,13 +2,16 @@ import { useRef, useState, useEffect } from 'react'
 import Sidebar from '../components/sidebar/sidebar'
 import Navbar from '../components/navbar/navbar'
 import BottomNav from '../components/bottom/bottomNav'
+import BioWindow from './bioWindow'
+import FactsWindow from './factsWindow'
+import TimelineWindow from './timelineWindow'
 import '../components/aboutMe.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder, faPlay } from '@fortawesome/free-solid-svg-icons'
 
 const aboutItems = [
-  { id: 'bio', name: 'bio', date: '--', size: '--', kind: 'Folder' },
-  { id: 'timeline', name: 'timeline', date: '--', size: '--', kind: 'Folder' },
+  { id: 'bio',      name: 'bio',       date: '--', size: '--', kind: 'Folder' },
+  { id: 'timeline', name: 'timeline',  date: '--', size: '--', kind: 'Folder' },
   { id: 'funFacts', name: 'fun facts', date: '--', size: '--', kind: 'Folder' },
 ]
 
@@ -17,6 +20,7 @@ const ROW_HEIGHT = 28
 export default function AboutMe() {
   const contentRef = useRef(null)
   const [totalRows, setTotalRows] = useState(20)
+  const [openWindow, setOpenWindow] = useState(null) // 'bio' | 'timeline' | 'funFacts' | null
 
   useEffect(() => {
     function calculate() {
@@ -31,6 +35,10 @@ export default function AboutMe() {
     return () => window.removeEventListener('resize', calculate)
   }, [])
 
+  function handleRowClick(item) {
+    if (item?.id) setOpenWindow(item.id)
+  }
+
   return (
     <>
       <Navbar />
@@ -43,17 +51,16 @@ export default function AboutMe() {
             <span className="aboutHeaderSize">Size</span>
             <span className="aboutHeaderKind">Kind</span>
           </div>
-
           <div className="aboutContentBody">
             {[...Array(totalRows)].map((_, i) => {
               const item = aboutItems[i]
               const isAlt = i % 2 === 0
-
               if (item) {
                 return (
                   <div
                     key={item.id}
                     className={`aboutRow ${isAlt ? 'aboutRowAlt' : ''}`}
+                    onClick={() => handleRowClick(item)}
                   >
                     <span className="aboutRowName">
                       <FontAwesomeIcon icon={faPlay} className="aboutRowChevron" />
@@ -66,7 +73,6 @@ export default function AboutMe() {
                   </div>
                 )
               }
-
               return (
                 <div
                   key={i}
@@ -77,6 +83,23 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
+
+      {/* Floating windows */}
+      {openWindow === 'bio' && (
+        <BioWindow onClose={() => setOpenWindow(null)} />
+      )}
+
+      {/* Floating windows */}
+      {openWindow === 'timeline' && (
+        <TimelineWindow onClose={() => setOpenWindow(null)} />
+      )}
+
+      {/* Floating windows */}
+      {openWindow === 'funFacts' && (
+        <FactsWindow onClose={() => setOpenWindow(null)} />
+      )}
+      
+
       <BottomNav itemCount={3} />
     </>
   )
