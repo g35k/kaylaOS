@@ -2,9 +2,11 @@ import { useRef, useState, useEffect } from 'react'
 import Sidebar from '../../components/sidebar/sidebar'
 import Navbar from '../../components/navbar/navbar'
 import BottomNav from '../../components/bottom/bottomNav'
-import '../components/aboutMe/projects.css'
+import '../../components/projects/projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder, faPlay } from '@fortawesome/free-solid-svg-icons'
+
+import ProjectOneWindow from './projectOneWindow'
 
 /* placeholder window imports
 import ProjectOneWindow from './ProjectOneWindow'
@@ -96,8 +98,7 @@ export default function Projects() {
 
       {/* Floating windows */}
       {openWindow === 'project1' && (
-        // <ProjectOneWindow onClose={() => setOpenWindow(null)} />
-        <div>Project 1 Window Placeholder</div>
+        <ProjectOneWindow onClose={() => setOpenWindow(null)} />
       )}
 
       {openWindow === 'project2' && (

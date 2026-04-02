@@ -5,7 +5,7 @@ import BottomNav from '../../components/bottom/bottomNav'
 import BioWindow from './bioWindow'
 import FactsWindow from './factsWindow'
 import TimelineWindow from './timelineWindow'
-import '../components/aboutMe/aboutMe.css'
+import '../../components/aboutMe/aboutMe.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder, faPlay } from '@fortawesome/free-solid-svg-icons'
 
