@@ -15,25 +15,25 @@ import {
 
 const sections = [
   {
+    heading: 'Places',
+    items: [
+      { id: 'home', label: 'Home', icon: faHouse, path: '/' },
+    ],
+  },
+  {
     heading: 'Favorites',
     items: [
-      { id: 'about',    label: 'About Me', icon: faUser,        path: '/about' },
-      { id: 'projects', label: 'Projects', icon: faFolderOpen,  path: '/projects' },
-      { id: 'resume',   label: 'Resume',   icon: faFileLines,   path: '/resume' },
+      { id: 'about',    label: 'About Me', icon: faUser,       path: '/about' },
+      { id: 'projects', label: 'Projects', icon: faFolderOpen, path: '/projects' },
+      { id: 'resume',   label: 'Resume',   icon: faFileLines,  path: '/resume' },
     ],
   },
   {
     heading: 'Contact Me',
     items: [
-      { id: 'email',    label: 'Email',    icon: faEnvelope, path: '/email' },
+      { id: 'email',    label: 'Email',    icon: faEnvelope, path: null, external: 'mailto:your@email.com' },
       { id: 'github',   label: 'GitHub',   icon: faGithub,   path: null, external: 'https://github.com/g35k' },
       { id: 'linkedin', label: 'LinkedIn', icon: faLinkedin, path: null, external: 'https://linkedin.com/in/kaylagaribay' },
-    ],
-  },
-  {
-    heading: 'Places',
-    items: [
-      { id: 'home', label: 'Home', icon: faHouse, path: '/' },
     ],
   },
 ]
@@ -56,23 +56,29 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      {sections.map((section) => (
-        <div className="sidebarSection" key={section.heading}>
-          <div className="sidebarSectionHeader">{section.heading}</div>
-          {section.items.map(item => (
-            <div
-              key={item.id}
-              className={`sidebarItem ${activeId === item.id ? 'active' : ''}`}
-              onClick={() => handleClick(item)}
-            >
-              <span className="sidebarIcon">
-                <FontAwesomeIcon icon={item.icon} />
-              </span>
-              {item.label}
-            </div>
-          ))}
-        </div>
-      ))}
+      <div className="sidebarContent">
+        {sections.map((section) => (
+          <div className="sidebarSection" key={section.heading}>
+            <div className="sidebarSectionHeader">{section.heading}</div>
+            {section.items.map(item => (
+              <div
+                key={item.id}
+                className={`sidebarItem ${activeId === item.id ? 'active' : ''}`}
+                onClick={() => handleClick(item)}
+              >
+                <span className="sidebarIcon">
+                  <FontAwesomeIcon icon={item.icon} />
+                </span>
+                {item.label}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div className="sidebarFooter">
+        <div className="sidebarFooterText">Kayla Garibay © 2026</div>
+      </div>
     </div>
   )
 }
