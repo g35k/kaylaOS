@@ -1,10 +1,18 @@
 import { useRef, useState, useEffect } from 'react'
-import Sidebar from '../components/sidebar/sidebar'
-import Navbar from '../components/navbar/navbar'
-import BottomNav from '../components/bottom/bottomNav'
-import '../components/projects.css'
+import Sidebar from '../../components/sidebar/sidebar'
+import Navbar from '../../components/navbar/navbar'
+import BottomNav from '../../components/bottom/bottomNav'
+import '../components/aboutMe/projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder, faPlay } from '@fortawesome/free-solid-svg-icons'
+
+/* placeholder window imports
+import ProjectOneWindow from './ProjectOneWindow'
+import ProjectTwoWindow from './ProjectTwoWindow'
+import ProjectThreeWindow from './ProjectThreeWindow'
+import ProjectFourWindow from './ProjectFourWindow'
+import ProjectFiveWindow from './ProjectFiveWindow'
+*/
 
 const projectItems = [
   { id: 'project1', name: 'project one', date: '--', size: '--', kind: 'Folder' },
@@ -19,6 +27,7 @@ const ROW_HEIGHT = 28
 export default function Projects() {
   const contentRef = useRef(null)
   const [totalRows, setTotalRows] = useState(20)
+  const [openWindow, setOpenWindow] = useState(null) // 'project1' | 'project2' | 'project3' | 'project4' | 'project5' | null
 
   useEffect(() => {
     function calculate() {
@@ -32,6 +41,10 @@ export default function Projects() {
     window.addEventListener('resize', calculate)
     return () => window.removeEventListener('resize', calculate)
   }, [])
+
+  function handleRowClick(item) {
+    if (item?.id) setOpenWindow(item.id)
+  }
 
   return (
     <>
@@ -56,6 +69,7 @@ export default function Projects() {
                   <div
                     key={item.id}
                     className={`projectsRow ${isAlt ? 'projectsRowAlt' : ''}`}
+                    onClick={() => handleRowClick(item)}
                   >
                     <span className="projectsRowName">
                       <FontAwesomeIcon icon={faPlay} className="projectsRowChevron" />
@@ -72,13 +86,40 @@ export default function Projects() {
               return (
                 <div
                   key={i}
-                  className={`aboutRow ${isAlt ? 'aboutRowAlt' : ''}`}
+                  className={`projectsRow ${isAlt ? 'projectsRowAlt' : ''}`}
                 />
               )
             })}
           </div>
         </div>
       </div>
+
+      {/* Floating windows */}
+      {openWindow === 'project1' && (
+        // <ProjectOneWindow onClose={() => setOpenWindow(null)} />
+        <div>Project 1 Window Placeholder</div>
+      )}
+
+      {openWindow === 'project2' && (
+        // <ProjectTwoWindow onClose={() => setOpenWindow(null)} />
+        <div>Project 2 Window Placeholder</div>
+      )}
+
+      {openWindow === 'project3' && (
+        // <ProjectThreeWindow onClose={() => setOpenWindow(null)} />
+        <div>Project 3 Window Placeholder</div>
+      )}
+
+      {openWindow === 'project4' && (
+        // <ProjectFourWindow onClose={() => setOpenWindow(null)} />
+        <div>Project 4 Window Placeholder</div>
+      )}
+
+      {openWindow === 'project5' && (
+        // <ProjectFiveWindow onClose={() => setOpenWindow(null)} />
+        <div>Project 5 Window Placeholder</div>
+      )}
+
       <BottomNav itemCount={5} />
     </>
   )

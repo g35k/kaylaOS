@@ -1,4 +1,4 @@
-import '../components/bioWindow.css'
+import '../components/aboutMe/bioWindow.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
