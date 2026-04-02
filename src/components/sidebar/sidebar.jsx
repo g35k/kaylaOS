@@ -1,5 +1,5 @@
 import './sidebar.css'
-import { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faUser,
@@ -17,29 +17,40 @@ const sections = [
   {
     heading: 'Favorites',
     items: [
-      { id: 'about', label: 'About Me', icon: faUser },
-      { id: 'projects', label: 'Projects', icon: faFolderOpen },
-      { id: 'resume', label: 'Resume', icon: faFileLines },
+      { id: 'about', label: 'About Me', icon: faUser, path: '/about' },
+      { id: 'projects', label: 'Projects', icon: faFolderOpen, path: '/projects' },
+      { id: 'resume', label: 'Resume', icon: faFileLines, path: '/resume' },
     ],
   },
   {
     heading: 'Contact Me',
     items: [
-      { id: 'email', label: 'Email', icon: faEnvelope },
-      { id: 'github', label: 'GitHub', icon: faGithub },
-      { id: 'linkedin', label: 'LinkedIn', icon: faLinkedin },
+      { id: 'email', label: 'Email', icon: faEnvelope, path: null },
+      { id: 'github', label: 'GitHub', icon: faGithub, path: null },
+      { id: 'linkedin', label: 'LinkedIn', icon: faLinkedin, path: null },
     ],
   },
   {
     heading: 'Places',
     items: [
-      { id: 'home', label: 'Home', icon: faHouse },
+      { id: 'home', label: 'Home', icon: faHouse, path: '/' },
     ],
   },
 ]
 
 export default function Sidebar() {
-  const [activeId, setActiveId] = useState('home')
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const activeId = sections
+    .flatMap(s => s.items)
+    .find(item => item.path === location.pathname)?.id ?? 'home'
+
+  function handleClick(item) {
+    if (item.path) {
+      navigate(item.path)
+    }
+  }
 
   return (
     <div className="sidebar">
@@ -50,7 +61,7 @@ export default function Sidebar() {
             <div
               key={item.id}
               className={`sidebarItem ${activeId === item.id ? 'active' : ''}`}
-              onClick={() => setActiveId(item.id)}
+              onClick={() => handleClick(item)}
             >
               <span className="sidebarIcon">
                 <FontAwesomeIcon icon={item.icon} />

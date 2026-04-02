@@ -1,0 +1,17 @@
+.bottomNav {
+    height: 24px;
+    min-height: 24px;
+    background: linear-gradient(to bottom, #d8d8d8, #c8c8c8);
+    border-top: 1px solid #9aa0a8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  
+  .bottomNavText {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    color: #555555;
+  }
