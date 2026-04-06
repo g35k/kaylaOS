@@ -1,12 +1,4 @@
-.finderContent {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: hidden;
-    background-color: #ffffff;
-  }
-  
-  .aboutContentHeader {
+.projectsContentHeader {
     display: flex;
     align-items: center;
     min-height: 25px;
@@ -21,7 +13,7 @@
     flex-shrink: 0;
   }
   
-  .aboutContentHeader span {
+  .projectsContentHeader span {
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
     font-size: 11px;
     font-weight: 700;
@@ -31,39 +23,39 @@
     height: 100%;
   }
   
-  .aboutHeaderName {
+  .projectsHeaderName {
     flex: 1.5;
     border-right: 1px solid #a0aab4;
     padding-right: 12px;
   }
   
-  .aboutHeaderDate {
+  .projectsHeaderDate {
     flex: 1.5;
     border-right: 1px solid #a0aab4;
     padding-left: 12px;
     padding-right: 12px;
   }
   
-  .aboutHeaderSize {
+  .projectsHeaderSize {
     flex: 0.6;
     border-right: 1px solid #a0aab4;
     padding-left: 12px;
     padding-right: 12px;
   }
   
-  .aboutHeaderKind {
+  .projectsHeaderKind {
     flex: 0.8;
     padding-left: 12px;
   }
   
-  .aboutContentBody {
+  .projectsContentBody {
     display: flex;
     flex-direction: column;
     flex: 1;
     overflow: hidden;
   }
   
-  .aboutRow {
+  .projectsRow {
     height: 28px;
     min-height: 28px;
     width: 100%;
@@ -74,24 +66,24 @@
     cursor: pointer;
   }
   
-  .aboutRow:hover {
+  .projectsRow:hover {
     background-color: #dce8f5;
   }
   
-  .aboutRowAlt {
+  .projectsRowAlt {
     background-color: #F3F6FA;
   }
   
-  .aboutRowAlt:hover {
+  .projectsRowAlt:hover {
     background-color: #dce8f5;
   }
   
-  .aboutRowFiller {
+  .projectsRowFiller {
     flex: 1;
     background-color: #ffffff;
   }
   
-  .aboutRowName {
+  .projectsRowName {
     flex: 1.5;
     display: flex;
     align-items: center;
@@ -101,39 +93,92 @@
     color: #1a1a1a;
     padding-right: 12px;
   }
+
+  .projectsRowNestedIndent {
+    width: 24px;
+    flex-shrink: 0;
+    display: inline-block;
+  }
   
-  .aboutRowChevron {
+  .projectsRowChevron {
     color: #888;
     font-size: 8px;
     flex-shrink: 0;
   }
+
+  .projectsRowChevronPlaceholder {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
   
-  .aboutRowFolder {
+  .projectsRowFolder {
     color: #9FC4DC;
     font-size: 15px;
     filter: drop-shadow(0px 0px 1px #3a6a8a) drop-shadow(0px 0px 1px #3a6a8a);
   }
   
-  .aboutRowDate {
+  .projectsRowDate {
     flex: 1.5;
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
     font-size: 12px;
     color: #555;
-    padding-left: 60px;
+    padding-left: 12px;
   }
   
-  .aboutRowSize {
+  .projectsRowSize {
     flex: 0.6;
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
     font-size: 12px;
     color: #555;
-    padding-left: 60px;
+    padding-left: 12px;
   }
   
-  .aboutRowKind {
+  .projectsRowKind {
     flex: 0.8;
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
     font-size: 12px;
     color: #555;
-    padding-left: 60px;
+    padding-left: 12px;
+  }
+
+  .projectsRowApp {
+    color: #6a8aaa;
+    font-size: 14px;
+    filter: drop-shadow(0px 0px 1px #3a5a7a) drop-shadow(0px 0px 1px #3a5a7a);
+  }
+
+  .projectsRowApp {
+    color: #6a8aaa;
+    font-size: 14px;
+    filter: drop-shadow(0px 0px 1px #3a5a7a) drop-shadow(0px 0px 1px #3a5a7a);
+  }
+  
+  .projectsRowHeart {
+    color: #c0392b;
+    font-size: 13px;
+    filter: drop-shadow(0px 0px 1px #8a1a1a) drop-shadow(0px 0px 1px #8a1a1a);
+  }
+  
+  .projectsRowChevronOpen {
+    transform: rotate(90deg);
+    transition: transform 0.2s ease;
+  }
+  
+  .projectsRowChevron {
+    transition: transform 0.2s ease;
+  }
+  
+  @keyframes projectsRowAquaUnfold {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scaleY(0.86);
+      filter: saturate(1.1) brightness(1.04);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+      filter: saturate(1) brightness(1);
+    }
   }

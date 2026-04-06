@@ -1,0 +1,298 @@
+.projWinOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 100;
+    animation: projWinOverlayIn 0.15s ease;
+  }
+  
+  @keyframes projWinOverlayIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  .projWin {
+    position: fixed;
+    width: 900px;
+    height: 620px;
+    border-radius: 8px;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.45),
+      0 2px 8px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid #7a8290;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: projWinIn 0.18s cubic-bezier(0.34, 1.3, 0.64, 1);
+    background: #f0f0f0;
+  }
+  
+  @keyframes projWinIn {
+    from { opacity: 0; transform: scale(0.93); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  
+  /* title bar */
+  .projWinTitleBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 28px;
+    min-height: 28px;
+    background: linear-gradient(to bottom, #e8e8e8, #d0d0d0);
+    border-bottom: 1px solid #9aa0a8;
+    padding: 0 10px;
+    flex-shrink: 0;
+    cursor: grab;
+    user-select: none;
+  }
+  
+  .projWinTitleBar:active {
+    cursor: grabbing;
+  }
+  
+  .projWinTrafficLights {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .projWinBtn {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  
+  .projWinClose {
+    background: radial-gradient(circle at 35% 35%, #ff6e6e, #e74c3c);
+    border: 1px solid #c0392b !important;
+  }
+  
+  .projWinMinimize {
+    background: radial-gradient(circle at 35% 35%, #ffd06e, #f39c12);
+    border: 1px solid #d68910 !important;
+  }
+  
+  .projWinZoom {
+    background: radial-gradient(circle at 35% 35%, #82e882, #27ae60);
+    border: 1px solid #1e8449 !important;
+  }
+  
+  .projWinClose:hover { background: #ff3b30; }
+  .projWinMinimize:hover { background: #f5a800; }
+  .projWinZoom:hover { background: #00c02a; }
+  
+  .projWinTitle {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .projWinTitleIcon {
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .projWinTitleSpacer {
+    width: 55px;
+  }
+  
+  /* body */
+  .projWinBody {
+    flex: 1;
+    background: #ffffff;
+    padding: 24px 32px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+  }
+  
+  .projWinHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  
+  .projWinName {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .projWinStatus {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 10px;
+    white-space: nowrap;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  
+  .projWinStatus--inProgress {
+    background: #d6eaff;
+    color: #1a5fa8;
+    border: 1px solid #a8c8f0;
+  }
+  
+  .projWinStatus--archived {
+    background: #e8e8e8;
+    color: #555;
+    border: 1px solid #ccc;
+  }
+  
+  .projWinDesc {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #444;
+    margin: 0;
+    border-top: 1px solid #ebebeb;
+    padding-top: 14px;
+  }
+  
+  /* meta row */
+  .projWinMeta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .projWinMetaCol {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .projWinLabel {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #767E8D;
+  }
+  
+  .projWinTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .projWinTag {
+    font-size: 11px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, #f0f4f8, #e0e8f0);
+    border: 1px solid #b8c8d8;
+    border-radius: 4px;
+    padding: 2px 8px;
+    color: #2a4a6a;
+  }
+  
+  .projWinRole {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #444;
+    font-style: italic;
+    margin: 0;
+  }
+  
+  /* image */
+  .projWinImgWrap {
+    width: 100%;
+  }
+  
+  .projWinImg {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #c0ccd8;
+    display: block;
+  }
+  
+  .projWinImgPlaceholder {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(to bottom, #e8eef4, #d8e4ee);
+    border: 1px solid #c0ccd8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    color: #8a9aaa;
+  }
+  
+  /* buttons */
+  .projWinBtns {
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid #ebebeb;
+    padding-top: 14px;
+  }
+  
+  .projWinAquaBtn {
+    font-size: 12px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    padding: 5px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .projWinAquaBtn--primary {
+    background: linear-gradient(to bottom, #7aa6d1, #2f6fb3);
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+  }
+  
+  .projWinAquaBtn--primary:hover {
+    background: linear-gradient(to bottom, #8ab6e1, #3f7fc3);
+  }
+  
+  .projWinAquaBtn--secondary {
+    background: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
+    color: #333;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.18);
+  }
+  
+  .projWinAquaBtn--secondary:hover {
+    background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  }
+  
+  /* resize grip */
+  .projWinResizeGrip {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    cursor: nwse-resize;
+    z-index: 5;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #aaa 0px, #aaa 1px,
+      transparent 1px, transparent 3px
+    );
+    opacity: 0.4;
+  }
