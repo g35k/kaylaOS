@@ -31,32 +31,32 @@ export default function Navbar() {
       <div className="navBottomRow">
         <div className="navLeft">
         <div className="navArrowGroup">
-          <button className="navArrowBtn" disabled>
+          <button type="button" className="navArrowBtn" disabled>
             <FontAwesomeIcon icon={faCaretLeft} />
           </button>
-          <button className="navArrowBtn" disabled>
+          <button type="button" className="navArrowBtn" disabled>
             <FontAwesomeIcon icon={faCaretRight} />
           </button>
         </div>
 
           <div className="navLeftGroups">
             <div className="navIconGroup">
-              <button className="navIconBtn">
+              <button type="button" className="navIconBtn" disabled>
                 <FontAwesomeIcon icon={faTableCells} />
               </button>
-              <button className="navIconBtn active">
+              <button type="button" className="navIconBtn active" disabled>
                 <FontAwesomeIcon icon={faBars} />
               </button>
-              <button className="navIconBtn">
+              <button type="button" className="navIconBtn" disabled>
                 <FontAwesomeIcon icon={faTableColumns} />
               </button>
-              <button className="navIconBtn">
+              <button type="button" className="navIconBtn" disabled>
                 <FontAwesomeIcon icon={faFilm} />
               </button>
             </div>
 
             <div className="navIconGroup">
-              <button className="navIconBtn">
+              <button type="button" className="navIconBtn" disabled>
                 <FontAwesomeIcon icon={faTableCells} />
               </button>
             </div>
@@ -66,12 +66,12 @@ export default function Navbar() {
         <div className="navCenter">
           <div className="navIconGroupAdjacent">
             <div className="navIconGroup">
-              <button className="navIconBtn">
+              <button type="button" className="navIconBtn" disabled>
                 <FontAwesomeIcon icon={faEye} />
               </button>
             </div>
             <div className="navIconGroup">
-              <button className="navIconBtn">
+              <button type="button" className="navIconBtn" disabled>
                 <FontAwesomeIcon icon={faGear} />
               </button>
             </div>
@@ -79,12 +79,14 @@ export default function Navbar() {
         </div>
 
         <div className="navRight">
-          <div className="navSearch">
+          <div className="navSearch navSearchInactive" aria-hidden="true">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="navSearchIcon" />
             <input
               type="text"
-              
               className="navSearchInput"
+              disabled
+              tabIndex={-1}
+              aria-hidden="true"
             />
           </div>
         </div>
