@@ -2,6 +2,8 @@ import Sidebar from '../components/sidebar/sidebar'
 import Navbar from '../components/navbar/navbar'
 import BottomNav from '../components/bottom/bottomNav'
 import '../components/resume.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileSignature } from '@fortawesome/free-solid-svg-icons'
 
 export default function Resume() {
   return (
@@ -13,23 +15,25 @@ export default function Resume() {
           <div className="resumeToolbar">
             <div className="resumeToolbarLeft">
               <span className="resumeFilename">
-                📄 resume.pdf
+                <FontAwesomeIcon icon={faFileSignature} className="resumeFileIcon" />
+                resume.pdf
               </span>
             </div>
             <div className="resumeToolbarRight">
-            <button
+              <button
                 className="resumeDownloadBtn"
                 onClick={() => {
-                const a = document.createElement('a')
-                a.href = '/assets/resume.pdf'
-                a.download = 'resume.pdf'
-                a.click()
-            }}
-            >
-            Download
-            </button>
+                  const a = document.createElement('a')
+                  a.href = '/assets/resume.pdf'
+                  a.download = 'resume.pdf'
+                  a.click()
+                }}
+              >
+                Download
+              </button>
             </div>
           </div>
+          <div className="resumeMetaStrip">PDF document - 1 item</div>
           <div className="resumeViewerWrapper">
             <iframe
               src="/assets/resume.pdf"
